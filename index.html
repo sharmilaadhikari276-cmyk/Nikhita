@@ -1,1 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nikhita Sharma — B.A. Political Science student at Surya Sen College, Siliguri. Academic portfolio, interests, skills, and projects.">
+  <meta name="keywords" content="Nikhita Sharma, Political Science, Surya Sen College, Siliguri, student portfolio">
+  <title>Nikhita Sharma | Political Science Student</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --warm-white: #F8F7F3;
+      --navy: #172A3A;
+      --slate: #52748A;
+      --charcoal: #30343B;
+      --beige: #E6E0D5;
+      --white: #ffffff;
+      --border: rgba(23, 42, 58, .14);
+      --shadow: 0 18px 50px rgba(23, 42, 58, .09);
+      --radius: 18px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--charcoal);
+      background: var(--warm-white);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container { width: min(92%, var(--max)); margin-inline: auto; }
+
+    /* Subtle editorial background */
+    .page-grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: .38;
+      background-image:
+        linear-gradient(rgba(23,42,58,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23,42,58,.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(248,247,243,.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+    .brand {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: .04em;
+    }
+    .brand span {
+      display: block;
+      font-family: "DM Sans", sans-serif;
+      font-size: .63rem;
+      font-weight: 600;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-top: -3px;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+      align-items: center;
+    }
+    .nav-links a {
+      position: relative;
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 2px;
+      background: var(--slate);
+      transition: width .25s ease;
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--navy);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* General */
+    section { padding: 100px 0; }
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--slate);
+      font-size: .76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      margin-bottom: 12px;
+    }
+    .section-kicker::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: var(--slate);
+    }
+    h1, h2, h3 {
+      color: var(--navy);
+      line-height: 1.12;
+    }
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+      margin-bottom: 18px;
+    }
+    .section-intro {
+      max-width: 680px;
+      color: #5b6067;
+      margin-bottom: 42px;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-items: center;
+      padding: 75px 0 95px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 70px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px;
+      border: 1px solid var(--border);
+      color: var(--slate);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      background: rgba(255,255,255,.42);
+    }
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      letter-spacing: -.04em;
+      margin-bottom: 12px;
+      animation: reveal .75s ease both;
+    }
+    .hero h1 span { color: var(--slate); }
+    .hero-title {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+    }
+    .hero-copy {
+      max-width: 650px;
+      font-size: 1.03rem;
+      color: #5b6067;
+      margin-bottom: 30px;
+    }
+    .buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 6px;
+      border: 1px solid var(--navy);
+      font-weight: 700;
+      font-size: .9rem;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(23,42,58,.12); }
+    .btn-primary { background: var(--navy); color: var(--white); }
+    .btn-secondary { background: transparent; color: var(--navy); }
+
+    .hero-art {
+      min-height: 490px;
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+    .art-paper {
+      width: min(100%, 450px);
+      aspect-ratio: 4 / 5;
+      background: var(--beige);
+      border: 1px solid rgba(23,42,58,.13);
+      box-shadow: var(--shadow);
+      transform: rotate(2deg);
+      position: relative;
+      padding: 30px;
+      animation: float 6s ease-in-out infinite;
+    }
+    .art-paper::before {
+      content: "POLITICAL";
+      position: absolute;
+      top: 25px;
+      left: 30px;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .2em;
+      color: var(--slate);
+    }
+    .art-paper::after {
+      content: "SCIENCE";
+      position: absolute;
+      top: 43px;
+      left: 30px;
+      font-family: "Playfair Display", serif;
+      font-size: 2.1rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .orbit {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border: 1px solid var(--slate);
+      border-radius: 50%;
+      top: 150px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .orbit::before, .orbit::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(82,116,138,.55);
+      border-radius: 50%;
+      inset: 28px;
+    }
+    .orbit::after { inset: 58px; }
+    .globe-dot {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--navy);
+      top: 265px;
+      left: calc(50% + 92px);
+    }
+    .paper-lines {
+      position: absolute;
+      left: 30px;
+      right: 30px;
+      bottom: 40px;
+      display: grid;
+      gap: 10px;
+    }
+    .paper-lines i {
+      height: 1px;
+      background: rgba(23,42,58,.28);
+    }
+    .paper-lines i:nth-child(2) { width: 78%; }
+    .paper-lines i:nth-child(3) { width: 90%; }
+    .paper-label {
+      position: absolute;
+      right: 30px;
+      bottom: 30px;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      color: var(--slate);
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 70px;
+      align-items: center;
+    }
+    .profile-placeholder {
+      aspect-ratio: 4/5;
+      max-width: 360px;
+      background:
+        linear-gradient(135deg, rgba(82,116,138,.12), transparent),
+        var(--beige);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .profile-placeholder .monogram {
+      width: 145px;
+      height: 145px;
+      border: 1px solid var(--slate);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: "Playfair Display", serif;
+      font-size: 3rem;
+      color: var(--navy);
+    }
+    .profile-placeholder small {
+      position: absolute;
+      bottom: 18px;
+      left: 20px;
+      color: var(--slate);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .about-text p { margin-bottom: 18px; color: #5b6067; }
+    .interest-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 25px;
+    }
+    .tag {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.42);
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* Education */
+    .timeline { position: relative; max-width: 900px; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 5px;
+      bottom: 5px;
+      width: 1px;
+      background: var(--slate);
+      opacity: .45;
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 48px;
+      padding-bottom: 42px;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: 3px;
+      top: 4px;
+      width: 13px;
+      height: 13px;
+      border: 2px solid var(--slate);
+      background: var(--warm-white);
+      border-radius: 50%;
+    }
+    .timeline-year {
+      font-size: .78rem;
+      color: var(--slate);
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+    .timeline h3 { font-size: 1.3rem; margin-bottom: 6px; }
+    .timeline p { color: #5b6067; }
+    .status {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 9px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .card {
+      background: rgba(255,255,255,.48);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: rgba(82,116,138,.45);
+    }
+    .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(82,116,138,.4);
+      color: var(--slate);
+      margin-bottom: 19px;
+      font-size: 1.1rem;
+    }
+    .card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .card p { color: #666b71; font-size: .9rem; }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13px 28px;
+      max-width: 900px;
+    }
+    .skill {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      gap: 9px;
+    }
+    .skill-top { display: flex; justify-content: space-between; font-weight: 700; color: var(--navy); }
+    .skill-bar { height: 5px; background: var(--beige); overflow: hidden; }
+    .skill-bar span { display: block; height: 100%; width: var(--level); background: var(--slate); }
+
+    /* Projects */
+    .projects { grid-template-columns: repeat(3, 1fr); }
+    .project-card { padding: 0; overflow: hidden; }
+    .project-top {
+      min-height: 155px;
+      padding: 25px;
+      background: var(--beige);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .project-number {
+      font-family: "Playfair Display", serif;
+      font-size: 2.8rem;
+      color: rgba(23,42,58,.25);
+    }
+    .project-body { padding: 24px; }
+    .project-body h3 { margin-bottom: 9px; }
+    .project-body p { margin-bottom: 20px; }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .84rem;
+      font-weight: 800;
+      color: var(--slate);
+    }
+    .project-link:hover { color: var(--navy); }
+
+    /* Contact */
+    .contact-wrap {
+      background: var(--navy);
+      color: var(--white);
+      padding: clamp(30px, 5vw, 65px);
+      border-radius: 22px;
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 65px;
+      box-shadow: var(--shadow);
+    }
+    .contact-wrap h2 { color: var(--white); }
+    .contact-wrap .section-kicker { color: #c4d1d8; }
+    .contact-wrap .section-kicker::before { background: #c4d1d8; }
+    .contact-copy { color: #d1d8dc; max-width: 430px; }
+    .contact-details { margin-top: 30px; display: grid; gap: 12px; }
+    .contact-details a, .contact-details div {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      color: #e7ecef;
+      font-size: .9rem;
+    }
+    .contact-icon { width: 24px; text-align: center; color: #b7c8d1; }
+    form { display: grid; gap: 14px; }
+    .field { display: grid; gap: 7px; }
+    label { font-size: .78rem; font-weight: 700; color: #d7dfe3; }
+    input, textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.07);
+      color: white;
+      border-radius: 7px;
+      padding: 13px 14px;
+      outline: none;
+      transition: border-color .2s ease, background .2s ease;
+    }
+    input:focus, textarea:focus {
+      border-color: #b6c8d1;
+      background: rgba(255,255,255,.1);
+    }
+    textarea { min-height: 135px; resize: vertical; }
+    .contact-wrap .btn {
+      justify-self: start;
+      border-color: white;
+      background: white;
+      color: var(--navy);
+      cursor: pointer;
+      margin-top: 5px;
+    }
+    .form-note { font-size: .76rem; color: #aebbc2; display: none; }
+
+    /* Footer */
+    footer {
+      padding: 45px 0 25px;
+      border-top: 1px solid var(--border);
+      margin-top: 80px;
+    }
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: flex-start;
+      padding-bottom: 28px;
+    }
+    .footer-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      color: var(--navy);
+    }
+    .footer-sub { color: #6a6f74; font-size: .88rem; margin-top: 4px; }
+    .footer-links { display: flex; gap: 14px; }
+    .footer-links a {
+      width: 39px;
+      height: 39px;
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      color: var(--navy);
+      transition: transform .2s ease, background .2s ease;
+    }
+    .footer-links a:hover { transform: translateY(-2px); background: var(--beige); }
+    .copyright {
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      color: #777b80;
+      font-size: .75rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: rotate(2deg) translateY(0); }
+      50% { transform: rotate(2deg) translateY(-8px); }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { gap: 14px; }
+      .hero-grid, .about-grid, .contact-wrap { grid-template-columns: 1fr; }
+      .hero-art { min-height: 420px; }
+      .about-grid { gap: 35px; }
+      .profile-placeholder { max-width: 330px; }
+      .cards, .projects { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      section { padding: 75px 0; }
+      .menu-btn { display: block; }
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 4%;
+        background: rgba(248,247,243,.98);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links.open { display: flex; }
+      .hero { padding-top: 50px; }
+      .hero h1 { font-size: clamp(3rem, 16vw, 5rem); }
+      .hero-art { min-height: 350px; }
+      .art-paper { max-width: 320px; }
+      .orbit { width: 180px; height: 180px; top: 130px; }
+      .globe-dot { top: 220px; left: calc(50% + 70px); }
+      .cards, .projects, .skills-grid { grid-template-columns: 1fr; }
+      .contact-wrap { gap: 35px; }
+      .footer-main, .copyright { flex-direction: column; }
+    }
+
+    @media (max-width: 430px) {
+      .brand { font-size: 1rem; }
+      .hero-copy { font-size: .95rem; }
+      .buttons .btn { width: 100%; }
+      .art-paper { max-width: 285px; }
+      .contact-wrap { padding: 28px 22px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-grid" aria-hidden="true"></div>
+
+  <header>
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home">NIKHITA SHARMA<span>Political Science</span></a>
+      <button class="menu-btn" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Student • Research • Ideas</div>
+          <h1>NIKHITA <span>SHARMA</span></h1>
+          <div class="hero-title">B.A. Political Science Student</div>
+          <p class="hero-copy">“A curious and motivated Political Science student passionate about politics, governance, society, current affairs, and understanding the ideas that shape our world.”</p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#projects">Explore My Portfolio</a>
+            <a class="btn btn-secondary" href="#contact">Contact Me</a>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-label="Abstract academic political science illustration">
+          <div class="art-paper">
+            <div class="orbit"></div>
+            <div class="globe-dot"></div>
+            <div class="paper-lines"><i></i><i></i><i></i></div>
+            <div class="paper-label">IDEAS • SOCIETY • GOVERNANCE</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="profile-placeholder reveal" role="img" aria-label="Professional profile image placeholder">
+          <div class="monogram">NS</div>
+          <small>Profile Image</small>
+        </div>
+
+        <div class="about-text reveal">
+          <div class="section-kicker">About Me</div>
+          <h2>Curiosity guided by ideas.</h2>
+          <p>I am <strong>Nikhita Sharma</strong>, a B.A. Political Science student at <strong>Surya Sen College, Siliguri</strong>, with a growing interest in the forces that influence institutions, communities, and public life.</p>
+          <p>My academic interests span political theory, Indian politics, democracy, governance, international relations, current affairs, and contemporary social and political issues. I enjoy learning through research, discussion, writing, and critical thinking.</p>
+          <div class="interest-tags">
+            <span class="tag">Political Theory</span>
+            <span class="tag">Indian Politics</span>
+            <span class="tag">Democracy</span>
+            <span class="tag">Governance</span>
+            <span class="tag">Research</span>
+            <span class="tag">Critical Thinking</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-kicker reveal">Academic Journey</div>
+        <h2 class="reveal">Education</h2>
+        <p class="section-intro reveal">A simple timeline of Nikhita’s academic journey and current studies.</p>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <div class="timeline-year">Current</div>
+            <h3>Bachelor of Arts — Political Science</h3>
+            <p>Surya Sen College, Siliguri</p>
+            <span class="status">Currently Pursuing</span>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <div class="timeline-year">2024 – 2025</div>
+            <h3>Higher Secondary — Arts</h3>
+            <p>Little Angel's School</p>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <div class="timeline-year">2022 – 2023</div>
+            <h3>Secondary Education</h3>
+            <p>Vidhya Niketan School</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="interests">
+      <div class="container">
+        <div class="section-kicker reveal">What I Explore</div>
+        <h2 class="reveal">Areas of Interest</h2>
+        <p class="section-intro reveal">Topics that shape my academic curiosity and encourage me to look at society from different perspectives.</p>
+
+        <div class="cards">
+          <article class="card reveal"><div class="icon">◈</div><h3>Political Theory</h3><p>Exploring political ideas, thinkers, concepts, power, liberty, equality, and justice.</p></article>
+          <article class="card reveal"><div class="icon">▤</div><h3>Indian Politics</h3><p>Understanding political institutions, parties, leadership, elections, and public life in India.</p></article>
+          <article class="card reveal"><div class="icon">◎</div><h3>International Relations</h3><p>Learning about states, diplomacy, global institutions, conflict, and cooperation.</p></article>
+          <article class="card reveal"><div class="icon">⌘</div><h3>Democracy &amp; Governance</h3><p>Studying participation, institutions, accountability, citizenship, and good governance.</p></article>
+          <article class="card reveal"><div class="icon">▥</div><h3>Public Administration</h3><p>Exploring how public institutions design and implement policies and services.</p></article>
+          <article class="card reveal"><div class="icon">◇</div><h3>Human Rights</h3><p>Understanding rights, dignity, equality, social justice, and contemporary challenges.</p></article>
+          <article class="card reveal"><div class="icon">↗</div><h3>Current Affairs</h3><p>Following important national and international developments and their wider implications.</p></article>
+          <article class="card reveal"><div class="icon">◌</div><h3>Social &amp; Political Issues</h3><p>Examining social change, inequality, identity, public debates, and political challenges.</p></article>
+          <article class="card reveal"><div class="icon">✦</div><h3>Art &amp; Craft</h3><p>A creative space for visual expression, making, experimentation, and personal exploration.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-kicker reveal">Capabilities</div>
+        <h2 class="reveal">Skills</h2>
+        <p class="section-intro reveal">Skills developed through academic work, presentations, collaboration, and everyday learning.</p>
+
+        <div class="skills-grid">
+          <div class="skill reveal" style="--level: 88%"><div class="skill-top"><span>Communication</span><span>88%</span></div><div class="skill-bar"><span></span></div></div>
+          <div class="skill reveal" style="--level: 82%"><div class="skill-top"><span>Public Speaking</span><span>82%</span></div><div class="skill-bar"><span></span></div></div>
+          <div class="skill reveal" style="--level: 85%"><div class="skill-top"><span>Research</span><span>85%</span></div><div class="skill-bar"><span></span></div></div>
+          <div class="skill reveal" style="--level: 90%"><div class="skill-top"><span>Critical Thinking</span><span>90%</span></div><div class="skill-bar"><span></span></div></div>
+          <div class="skill reveal" style="--level: 84%"><div class="skill-top"><span>Presentation</span><span>84%</span></div><div class="skill-bar"><span></span></div></div>
+          <div class="skill reveal" style="--level: 86%"><div class="skill-top"><span>Academic Writing</span><span>86%</span></div><div class="skill-bar"><span></span></div></div>
+          <div class="skill reveal" style="--level: 87%"><div class="skill-top"><span>Teamwork</span><span>87%</span></div><div class="skill-bar"><span></span></div></div>
+          <div class="skill reveal" style="--level: 78%"><div class="skill-top"><span>Basic Computer Skills</span><span>78%</span></div><div class="skill-bar"><span></span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-kicker reveal">Selected Work</div>
+        <h2 class="reveal">Academic Portfolio</h2>
+        <p class="section-intro reveal">A space for Political Science assignments, academic projects, presentations, and future research work.</p>
+
+        <div class="cards projects">
+          <article class="card project-card reveal">
+            <div class="project-top"><span class="section-kicker">Assignment</span><span class="project-number">01</span></div>
+            <div class="project-body"><h3>Political Science Assignment</h3><p>A structured academic assignment exploring a selected political concept or contemporary issue.</p><a class="project-link" href="#" onclick="projectNotice(event)">View Project →</a></div>
+          </article>
+          <article class="card project-card reveal">
+            <div class="project-top"><span class="section-kicker">Project</span><span class="project-number">02</span></div>
+            <div class="project-body"><h3>Academic Research Project</h3><p>A dedicated space for research, analysis, sources, findings, and academic reflections.</p><a class="project-link" href="#" onclick="projectNotice(event)">View Project →</a></div>
+          </article>
+          <article class="card project-card reveal">
+            <div class="project-top"><span class="section-kicker">Presentation</span><span class="project-number">03</span></div>
+            <div class="project-body"><h3>Class Presentation</h3><p>A presentation portfolio highlighting academic communication and public-speaking work.</p><a class="project-link" href="#" onclick="projectNotice(event)">View Project →</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-wrap reveal">
+          <div>
+            <div class="section-kicker">Get in Touch</div>
+            <h2>Let's Connect</h2>
+            <p class="contact-copy">Whether it is an academic conversation, collaboration, project discussion, or simply connecting with a fellow learner, feel free to reach out.</p>
+
+            <div class="contact-details">
+              <div><span class="contact-icon">⌖</span><span>Siliguri, West Bengal, India</span></div>
+              <a href="mailto:nikhitasharma84@gmail.com"><span class="contact-icon">✉</span><span>nikhitasharma84@gmail.com</span></a>
+              <a href="https://github.com/nikhitasharma0907-cloud" target="_blank" rel="noopener noreferrer"><span class="contact-icon">◉</span><span>github.com/nikhitasharma0907-cloud</span></a>
+              <a href="tel:+918967129064"><span class="contact-icon">☎</span><span>+91 89671 29064</span></a>
+            </div>
+          </div>
+
+          <form id="contactForm">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button class="btn" type="submit">Send Message</button>
+            <p class="form-note" id="formNote">Your email app will open with the message prepared for Nikhita.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-main">
+        <div>
+          <div class="footer-name">NIKHITA SHARMA</div>
+          <div class="footer-sub">B.A. Political Science Student · Siliguri, West Bengal, India</div>
+        </div>
+        <div class="footer-links" aria-label="Contact links">
+          <a href="mailto:nikhitasharma84@gmail.com" aria-label="Email">✉</a>
+          <a href="https://github.com/nikhitasharma0907-cloud" target="_blank" rel="noopener noreferrer" aria-label="GitHub">◉</a>
+          <a href="tel:+918967129064" aria-label="Contact number">☎</a>
+        </div>
+      </div>
+      <div class="copyright">
+        <span>© 2026 Nikhita Sharma. All Rights Reserved.</span>
+        <span>Ideas · Inquiry · Impact</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuBtn.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", open);
+      menuBtn.textContent = open ? "×" : "☰";
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    // Highlight navigation item based on current section
+    const sections = document.querySelectorAll("main section[id]");
+    const navItems = document.querySelectorAll(".nav-links a");
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navItems.forEach(item => item.classList.remove("active"));
+          const active = document.querySelector('.nav-links a[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-35% 0px -55% 0px" });
+
+    sections.forEach(section => sectionObserver.observe(section));
+
+    // Contact form: opens the visitor's default email client.
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const subject = encodeURIComponent("Portfolio Contact from " + name);
+      const body = encodeURIComponent(
+        "Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message
+      );
+
+      window.location.href =
+        "mailto:nikhitasharma84@gmail.com?subject=" + subject + "&body=" + body;
+
+      document.getElementById("formNote").style.display = "block";
+    });
+
+    function projectNotice(event) {
+      event.preventDefault();
+      alert("This project card is ready for your project link. Replace the # in the HTML with the actual project URL.");
+    }
+  </script>
+</body>
+</html>
